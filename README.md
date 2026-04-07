@@ -1,132 +1,79 @@
-# Shell SaaS - Monorepo
+# Best Practices — Coding avec IA (solo & multi-agents)
 
-Application SaaS modulaire construite avec une architecture moderne en monorepo.
+Ce dépôt sert de **référentiel de bonnes pratiques** pour développer avec des agents IA, en solo ou à plusieurs, avec une base documentaire claire et versionnée.
 
-## 🏗️ Architecture
+L'objectif est simple : garder un cadre commun pour la qualité du code, les décisions d'architecture, la documentation produit, et le handoff entre contributeurs humains et IA.
 
-- **Frontend**: Vite 7 + React 19 + TypeScript + Tailwind CSS 4
-- **Backend**: Node.js + Express + Prisma + TypeScript
-- **Database**: PostgreSQL 17
-- **Deployment**: Docker Compose
+## Comment le projet est "set"
 
-## 📦 Structure du projet
+- `agent/` : règles de travail pour les agents et contributeurs (qualité, API, React, architecture, UX, GitHub).
+- `docs/` : base de connaissance projet (vision produit, ADR, guides, specs de features).
+- `.gitignore` : fichiers à exclure du versioning.
 
-```
-shell-saas/
-├── frontend/          # Application React
-├── backend/           # API Node.js
-├── docker-compose.yml # Configuration Docker
-└── package.json       # Configuration monorepo
-```
+Structure actuelle :
 
-## 🚀 Démarrage rapide
-
-### Prérequis
-
-- Node.js 20+
-- Docker & Docker Compose
-- npm ou yarn
-
-### Installation
-
-1. Cloner le repository
-```bash
-git clone <repository-url>
-cd shell-saas
+```text
+.
+├── agent/
+│   ├── agent-principal.md
+│   ├── agent-software-engineer.md
+│   ├── agent-api-architect.md
+│   ├── agent-react.md
+│   ├── agent-sys-architecture.md
+│   ├── agent-ux-ui.md
+│   └── agent-github.md
+└── docs/
+    ├── README.md
+    ├── architecture/
+    ├── business/
+    ├── features/
+    └── guides/
 ```
 
-2. Copier le fichier d'environnement
-```bash
-cp .env.example .env
-```
+## Ordre de lecture recommandé
 
-3. Installer les dépendances
-```bash
-npm run install:all
-```
+Pour rester aligné avant toute tâche non triviale :
 
-4. Démarrer avec Docker
-```bash
-docker-compose up
-```
+1. `agent/agent-principal.md`
+2. `docs/README.md`
+3. Les documents ciblés du périmètre concerné (`docs/architecture`, `docs/guides`, `docs/features`, `docs/business`)
 
-L'application sera accessible sur :
-- Frontend : http://localhost:3000
-- Backend API : http://localhost:3001
-- PostgreSQL : localhost:5434
+Cette séquence évite de charger tout le repo inutilement et améliore la cohérence entre sessions.
 
-### Développement local (sans Docker)
+## Fonctionnement solo / multi-contributeurs
 
-1. Démarrer PostgreSQL
-```bash
-docker-compose up postgres -d
-```
+- **Solo** : tu utilises ce repo comme source de vérité pour tes choix techniques et produit.
+- **Multi (humains + IA)** : chaque décision et changement important est tracé dans les bons documents pour permettre un handoff propre.
+- **Asynchrone** : la doc versionnée permet à un autre agent/contributeur de reprendre sans contexte oral.
 
-2. Dans un terminal - Backend
-```bash
-cd backend
-npm install
-npm run prisma:migrate
-npm run dev
-```
+## Règles de documentation
 
-3. Dans un autre terminal - Frontend
-```bash
-cd frontend
-npm install
-npm run dev
-```
+Quand le comportement, l'API ou l'architecture évolue :
 
-## 🛠️ Scripts disponibles
+- mettre à jour la doc concernée dans le même changement, ou
+- indiquer explicitement dans le commit / la PR pourquoi la doc ne change pas.
 
-### Racine du projet
-- `npm run dev` - Démarre tous les services avec Docker
-- `npm run install:all` - Installe toutes les dépendances
-- `npm run build` - Build frontend et backend
-- `npm run clean` - Nettoie les node_modules
+Repères principaux :
 
-### Frontend
-- `npm run dev` - Mode développement
-- `npm run build` - Build production
-- `npm run preview` - Preview du build
+- Décisions techniques structurantes : `docs/architecture/ADR-00N-*.md`
+- Guides d'implémentation : `docs/guides/Guide-*.md`
+- Spécifications fonctionnelles : `docs/features/*`
+- Vision / vocabulaire / historique besoins : `docs/business/*`
 
-### Backend
-- `npm run dev` - Mode développement avec hot-reload
-- `npm run build` - Compile TypeScript
-- `npm run start` - Démarre en production
-- `npm run prisma:migrate` - Applique les migrations Prisma
-- `npm run prisma:studio` - Ouvre Prisma Studio
+## Workflow conseillé
 
-## 📚 Technologies
+1. Charger le contexte minimal (ordre de lecture ci-dessus).
+2. Implémenter la tâche avec les conventions du domaine (`agent/*.md`).
+3. Valider (tests/lint selon le périmètre).
+4. Mettre à jour la documentation impactée.
+5. Commit avec un message clair sur le *pourquoi*.
 
-### Frontend
-- **React 19** - Framework UI avec Server Components
-- **Vite 7** - Build tool ultra-rapide
-- **TypeScript** - Typage statique
-- **Tailwind CSS 4** - Framework CSS utility-first
-- **Lucide React** - Icônes modernes
+## Convention de contribution
 
-### Backend
-- **Node.js** - Runtime JavaScript
-- **Express** - Framework web
-- **Prisma 7.2** - ORM moderne
-- **TypeScript** - Typage statique
-- **PostgreSQL** - Base de données relationnelle
+- Privilégier des changements atomiques et traçables.
+- Éviter la duplication documentaire : un document source, les autres référencent.
+- Nommer les nouveaux fichiers de doc selon les conventions déjà en place.
 
-## 📝 Conventions de code
+---
 
-- Utiliser TypeScript strict mode
-- Suivre les principes SOLID
-- Tests unitaires et d'intégration
-- Code review obligatoire
-
-## 🐳 Docker
-
-Les services sont orchestrés via Docker Compose :
-- PostgreSQL sur le port 5434
-- Backend sur le port 3001
-- Frontend sur le port 3000
-
-## 📄 License
-
-MIT
+Si tu démarres, commence par `agent/agent-principal.md` puis `docs/README.md`.
