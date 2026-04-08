@@ -6,37 +6,43 @@ The goal is straightforward: keep a shared framework for code quality, architect
 
 ## How this project is set up
 
-- `agent/`: operating rules for agents and contributors (quality, API, React, architecture, UX, GitHub).
-- `docs/`: project knowledge base (product vision, ADRs, guides, feature specs).
+Documentation and agent rules are split by language:
+
+- **`en/`** (default): `en/agent/` — operating rules; `en/docs/` — knowledge base (vision, ADRs, guides, features).
+- **`fr/`**: `fr/agent/` and `fr/docs/` — same scope in French (follow-up, French prompts).
 - `.gitignore`: files excluded from version control.
 
-Current structure:
+See **[`AGENTS.md`](AGENTS.md)** for which tree to load. Current layout (English):
 
 ```text
 .
-├── agent/
-│   ├── agent-principal.md
-│   ├── agent-software-engineer.md
-│   ├── agent-api-architect.md
-│   ├── agent-react.md
-│   ├── agent-sys-architecture.md
-│   ├── agent-ux-ui.md
-│   └── agent-github.md
-└── docs/
-    ├── README.md
-    ├── architecture/
-    ├── business/
-    ├── features/
-    └── guides/
+├── en/
+│   ├── agent/
+│   │   ├── agent-principal.md
+│   │   ├── agent-software-engineer.md
+│   │   ├── agent-api-architect.md
+│   │   ├── agent-react.md
+│   │   ├── agent-sys-architecture.md
+│   │   ├── agent-ux-ui.md
+│   │   └── agent-github.md
+│   └── docs/
+│       ├── README.md
+│       ├── architecture/
+│       ├── business/
+│       ├── features/
+│       └── guides/
+└── fr/
+    ├── agent/
+    └── docs/
 ```
 
 ## Recommended reading order
 
 Before any non-trivial task, load context in this order:
 
-1. `agent/agent-principal.md`
-2. `docs/README.md`
-3. Targeted documents for the current scope (`docs/architecture`, `docs/guides`, `docs/features`, `docs/business`)
+1. `en/agent/agent-principal.md`
+2. `en/docs/README.md`
+3. Targeted documents for the current scope (`en/docs/architecture`, `en/docs/guides`, `en/docs/features`, `en/docs/business`)
 
 This sequence avoids loading the whole repository unnecessarily and improves consistency across sessions.
 
@@ -53,17 +59,17 @@ When behavior, API, or architecture changes:
 - update the relevant documentation in the same change, or
 - explicitly state in the commit/PR why docs are unchanged.
 
-Main references:
+Main references (English):
 
-- Major technical decisions: `docs/architecture/ADR-00N-*.md`
-- Implementation guides: `docs/guides/Guide-*.md`
-- Functional specifications: `docs/features/*`
-- Vision / glossary / requirements history: `docs/business/*`
+- Major technical decisions: `en/docs/architecture/ADR-00N-*.md`
+- Implementation guides: `en/docs/guides/Guide-*.md`
+- Functional specifications: `en/docs/features/*`
+- Vision / glossary / requirements history: `en/docs/business/*`
 
 ## Suggested workflow
 
 1. Load minimal context (reading order above).
-2. Implement with domain conventions (`agent/*.md`).
+2. Implement with domain conventions (`en/agent/*.md`).
 3. Validate (tests/lint for the affected scope).
 4. Update impacted documentation.
 5. Commit with a clear message focused on the *why*.
@@ -76,7 +82,7 @@ Main references:
 
 ---
 
-If you are just getting started, begin with `agent/agent-principal.md`, then `docs/README.md`.
+If you are just getting started, begin with `en/agent/agent-principal.md`, then `en/docs/README.md`. For French, use `fr/agent/agent-principal.md` and `fr/docs/README.md`.
 
 ## Version francaise
 
@@ -86,24 +92,20 @@ Ce depot sert de **referentiel de bonnes pratiques** pour developper avec des ag
 
 L'objectif est simple : garder un cadre commun pour la qualite du code, les decisions d'architecture, la documentation produit, et le handoff entre contributeurs humains et IA.
 
-## Comment le projet est "set"
+## Comment le projet est organisé
 
-- `agent/` : regles de travail pour les agents et contributeurs (qualite, API, React, architecture, UX, GitHub).
-- `docs/` : base de connaissance projet (vision produit, ADR, guides, specs de features).
-- `.gitignore` : fichiers a exclure du versioning.
+La doc et les règles agents sont séparées par langue. Voir **[`AGENTS.md`](AGENTS.md)** (par défaut : `en/` ; suivi ou prompts en français : `fr/`).
 
-Structure actuelle :
+- **`fr/agent/`** et **`fr/docs/`** : même périmètre que l’anglais, en français.
+- **`.gitignore`** : fichiers exclus du versioning.
+
+Extrait de structure côté français :
 
 ```text
-.
+fr/
 ├── agent/
 │   ├── agent-principal.md
-│   ├── agent-software-engineer.md
-│   ├── agent-api-architect.md
-│   ├── agent-react.md
-│   ├── agent-sys-architecture.md
-│   ├── agent-ux-ui.md
-│   └── agent-github.md
+│   └── …
 └── docs/
     ├── README.md
     ├── architecture/
@@ -116,9 +118,9 @@ Structure actuelle :
 
 Pour rester aligne avant toute tache non triviale :
 
-1. `agent/agent-principal.md`
-2. `docs/README.md`
-3. Les documents cibles du perimetre concerne (`docs/architecture`, `docs/guides`, `docs/features`, `docs/business`)
+1. `fr/agent/agent-principal.md`
+2. `fr/docs/README.md`
+3. Les documents cibles du perimetre concerne (`fr/docs/architecture`, `fr/docs/guides`, `fr/docs/features`, `fr/docs/business`)
 
 Cette sequence evite de charger tout le repo inutilement et ameliore la coherence entre sessions.
 
@@ -137,15 +139,15 @@ Quand le comportement, l'API ou l'architecture evolue :
 
 Reperes principaux :
 
-- Decisions techniques structurantes : `docs/architecture/ADR-00N-*.md`
-- Guides d'implementation : `docs/guides/Guide-*.md`
-- Specifications fonctionnelles : `docs/features/*`
-- Vision / vocabulaire / historique besoins : `docs/business/*`
+- Decisions techniques structurantes : `fr/docs/architecture/ADR-00N-*.md`
+- Guides d'implementation : `fr/docs/guides/Guide-*.md`
+- Specifications fonctionnelles : `fr/docs/features/*`
+- Vision / vocabulaire / historique besoins : `fr/docs/business/*`
 
 ## Workflow conseille
 
 1. Charger le contexte minimal (ordre de lecture ci-dessus).
-2. Implementer la tache avec les conventions du domaine (`agent/*.md`).
+2. Implementer la tache avec les conventions du domaine (`fr/agent/*.md`).
 3. Valider (tests/lint selon le perimetre).
 4. Mettre a jour la documentation impactee.
 5. Commit avec un message clair sur le *pourquoi*.
@@ -158,4 +160,4 @@ Reperes principaux :
 
 ---
 
-Si tu demarres, commence par `agent/agent-principal.md` puis `docs/README.md`.
+Si tu demarres en français, commence par `fr/agent/agent-principal.md` puis `fr/docs/README.md`. Par défaut en anglais : `en/agent/agent-principal.md` et `en/docs/README.md`.
