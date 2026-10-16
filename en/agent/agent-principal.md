@@ -18,6 +18,28 @@ The sections below build on the following directive files. For full detail per d
 
 ---
 
+## How to Ask Questions
+
+When a human request is ambiguous or lacks sufficient context to proceed safely, ask targeted questions rather than acting on assumptions. This prevents costly rework, wasted effort, and incorrect outcomes.
+
+**Ask questions when:**
+- The stated requirement conflicts with available context (e.g., the agent is told an entity exists but it cannot be found in the repository).
+- Critical parameters are missing (e.g., a date range is required but not provided, and a default cannot be assumed).
+- The request could reasonably be interpreted in multiple ways.
+- You would need to invent facts or make major assumptions to proceed.
+
+**How to ask:**
+- Ask targeted, specific questions rather than open-ended ones.
+- Propose options or a sensible default when reasonable.
+- Be concise — focus on the minimum information needed to proceed.
+
+**Do not ask questions when:**
+- Contextual disambiguation is sufficient (e.g., resolving name conflicts by date or by explicit reference).
+- The task is straightforward and all parameters are explicit.
+- A reasonable default exists and can be confirmed declaratively without interaction.
+
+---
+
 ## 1. Execution principles (Software Engineer)
 
 ### Agent / developer behavior
