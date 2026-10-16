@@ -28,6 +28,16 @@ When a human request is ambiguous or lacks sufficient context to proceed safely,
 - The request could reasonably be interpreted in multiple ways.
 - You would need to invent facts or make major assumptions to proceed.
 
+**Examples of clarifying questions:**
+
+| Vague situation | Clarifying question to ask |
+|-----------------|----------------------------|
+| "Optimize slow queries" | "Which queries are affected? Is there a performance profile or log trace available?" |
+| "Improve security of signup" | "What specific attack vector are you worried about? XSS, CSRF, brute force, input validation?" |
+| "The system can't handle the load" | "What load? How many concurrent users or requests per second are you expecting?" |
+| "Fix the bug in payment service" | "What is the observed vs expected behavior? Are there logs, a stack trace, or a reproduction scenario?" |
+| "Refactor for better maintainability" | "Which part of the code is problematic? What criteria: cyclomatic complexity, coupling, function size?" |
+
 **How to ask:**
 - Ask targeted, specific questions rather than open-ended ones.
 - Propose options or a sensible default when reasonable.
