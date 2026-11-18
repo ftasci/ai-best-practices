@@ -334,7 +334,8 @@ The project has a **source UI kit** at the repo root: **`source/ui-kit/`**.
 | Architecture Decision Record | `docs/architecture/ADR-[num]-[title].md` |
 | JTBD / UX journeys | `docs/ux/[feature]-jtbd.md`, `-journey.md`, `-flow.md` |
 | **Feature doc (Backoffice)** | `docs/features/BO-Feature-[FEATURE_NAME].md` |
-| **Feature doc (Frontend)** | `docs/features/FR-Feature-[FEATURE_NAME].md` |
+| **Feature doc (Frontend)** | `docs/features/FO-Feature-[FEATURE_NAME].md` |
+| **Feature implementation guide** | `docs/features/[BO or FO]-Feature-[FEATURE_NAME]-Implementation.md` |
 | **Technical guides** | `docs/guides/Guide-[Topic].md` |
 | **Templates (examples)** | `docs/features/BO-Feature-Custom-Pages.md`, `docs/features/BO-Feature-Channels-Navigation.md` |
 | Components (Atomic) | `frontend/src/components/{atoms,molecules,organisms,templates}`, same for `backoffice` |

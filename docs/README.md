@@ -79,15 +79,20 @@ Location: **`docs/guides/`** — naming: `Guide-<Topic>.md`
 
 ## 6. Product features
 
-Location: **`docs/features/`** — keep existing naming (`BO-Feature-*.md`, etc.)
+Location: **`docs/features/`**
+
+**Naming convention**: `<SCOPE>-Feature-<Name>[-Implementation].md`
+
+- `<SCOPE>`: `BO` (backoffice) or `FO` (public frontend).
+- `<Name>`: feature name in `Pascal-Kebab-Case` (e.g. `Media`, `SSO`, `Custom-Pages`); do not repeat the scope in the name.
+- `-Implementation` (optional): technical companion to a feature spec, when the spec grows too large.
 
 | Document | Topic |
 |----------|--------|
-| [`features/BO-Feature-SSO-Backoffice.md`](features/BO-Feature-SSO-Backoffice.md) | SSO / OIDC Keycloak — spec, env, endpoints |
 | [`features/BO-Feature-Media.md`](features/BO-Feature-Media.md) | Media (backoffice) |
-| [`features/SSO_IMPLEMENTATION_GUIDE.md`](features/SSO_IMPLEMENTATION_GUIDE.md) | SSO implementation in the repo (complements the SSO feature doc) |
+| [`features/BO-Feature-SSO.md`](features/BO-Feature-SSO.md) | SSO / OIDC Keycloak — flow, rules, env, endpoints, security, troubleshooting |
 
-**Rule**: significant new feature → **`docs/features/BO-Feature-<NAME>.md`** (goal, scope, data, endpoints, out of scope). Split a long implementation guide into a separate file if the feature doc grows too large.
+**Rule**: significant new feature → **`docs/features/BO-Feature-<Name>.md`** (goal, scope, data, endpoints, out of scope). Split a long implementation guide into `BO-Feature-<Name>-Implementation.md` if the feature doc grows too large.
 
 ---
 
@@ -97,8 +102,9 @@ Location: **`docs/features/`** — keep existing naming (`BO-Feature-*.md`, etc.
 |------|----------|
 | ADR | `docs/architecture/ADR-00N-title-kebab-case.md` |
 | Technical guide | `docs/guides/Guide-<Topic>.md` |
-| Backoffice feature | `docs/features/BO-Feature-<NAME>.md` |
-| Public frontend feature | `docs/features/FR-Feature-<NAME>.md` |
+| Backoffice feature | `docs/features/BO-Feature-<Name>.md` |
+| Public frontend feature | `docs/features/FO-Feature-<Name>.md` |
+| Feature implementation guide | `docs/features/<SCOPE>-Feature-<Name>-Implementation.md` |
 | JTBD / UX journeys | `docs/ux/<feature>-jtbd.md`, `-journey.md`, `-flow.md` (create `docs/ux/` if needed) |
 | Vision / glossary / requirements history | `docs/business/` (`VISION.md`, `GLOSSARY.md`, `REQUIREMENTS-HISTORY.md`) |
 | Stack / version report | `docs/report/` (maintained or regenerated intentionally) |
